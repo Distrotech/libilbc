@@ -9,7 +9,7 @@ extract_script_url = http://www.ilbcfreeware.org/documentation/$(extract_script)
 downloaded_files = $(technical_spec) $(extract_script) $(license)
 checkmarks = $(downloaded_files:%=%.check)
 success_marker = ../src/iLBC_define.h
-BUILT_SOURCES = $(downloaded_files) $(checkmarks) $(success_marker)
+BUILT_SOURCES = $(checkmarks) $(success_marker)
 
 checksum_dir = $(srcdir)/known_checksums
 checksum_files = $(addprefix $(checksum_dir)/, $(downloaded_files:%=%.md5))
