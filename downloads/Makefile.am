@@ -1,10 +1,10 @@
 # here are the file names and urls for the technical specification
 technical_spec = rfc3951.txt
-technical_spec_url = http://www.ietf.org/rfc/$(technical_spec)
+technical_spec_url = ftp://ftp.rfc-editor.org/in-notes/$(technical_spec)
 
 # for the extract script
-extract_script = extract-cfile.awk
-extract_script_url = http://www.webrtc.org/ilbc-freeware/ilbc-source-code-and-utili/ilbc-utilities/$(extract_script)
+extract_script = extract-cfile
+extract_script_url = http://www.ilbcfreeware.org/documentation/$(extract_script)
 
 downloaded_files = $(technical_spec) $(extract_script) $(license)
 checkmarks = $(downloaded_files:%=%.check)
@@ -19,7 +19,7 @@ $(technical_spec):
 	$(WGET) --no-check-certificate $(technical_spec_url) -O ${technical_spec}
 
 $(extract_script):
-	$(WGET) --no-check-certificate $(extract_script_url) -O ${extract_script}
+	$(WGET) --no-check-certificate $(extract_script_url).txt -O ${extract_script}.awk
 
 
 # for check, go to $(srcdir) or ./, depending on where file is
