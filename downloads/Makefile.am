@@ -16,15 +16,15 @@ checksum_files = $(addprefix $(checksum_dir)/, $(downloaded_files:%=%.md5))
 EXTRA_DIST = $(checksum_files)
 
 $(technical_spec):
-	$(WGET) --no-check-certificate $(technical_spec_url) -O ${technical_spec}
+	echo $(WGET) --no-check-certificate $(technical_spec_url) -O ${technical_spec}
 
 $(extract_script):
-	$(WGET) --no-check-certificate $(extract_script_url).txt -O ${extract_script}.awk
+	echo $(WGET) --no-check-certificate $(extract_script_url).txt -O ${extract_script}.awk
 
 
 # for check, go to $(srcdir) or ./, depending on where file is
 $(checkmarks): %.check: %
-	cd $(<D); $(MD5SUM) -c $(checksum_dir)/$(<F).md5
+	cd $(<D); echo $(MD5SUM) -c $(checksum_dir)/$(<F).md5
 	touch $@
 
 # cleaning up in ../src is necessary because the awk script appends
